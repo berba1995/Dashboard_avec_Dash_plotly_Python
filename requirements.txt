@@ -1,0 +1,22 @@
+
+dash==1.18.1
+dash-bootstrap-components==0.8.3
+dash-core-components==1.14.1
+dash-daq==0.1.0
+dash-html-components==1.1.1
+dash-renderer==1.8.3
+dash-table==4.11.1
+DateTime==4.2
+decorator==4.3.2
+-e git+https://github.com/GibbsConsulting/django-plotly-dash.git@b1a86eebc6e1ef002a10f964f98952ddd47f862e#egg=django_plotly_dash
+Flask==1.1.2
+Flask-Compress==1.4.0
+Flask-Cors==3.0.4
+Flask-SQLAlchemy==2.4.4
+html5lib==0.9999999
+numpy==1.19.3
+numpydoc==0.8.0
+pandas==0.24.2
+plotly==4.14.1
+plotly-express==0.4.1
+XlsxWriter==1.1.4
