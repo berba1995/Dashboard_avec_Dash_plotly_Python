@@ -45,7 +45,7 @@ def update_first_download(start_date, end_date,type):
 ######################## FOR GRAPHS  ########################
 
 
-def update_graph_1(start_date, end_date,type):
+def update_graph(start_date, end_date,type):
     if start_date is not None:
             start_date= dt.strptime(start_date, '%Y-%m-%d')
             start_date_string = start_date.strftime('%Y-%m-%d')
@@ -91,7 +91,7 @@ def update_graph_1(start_date, end_date,type):
     Bar=go.Bar(
         x=labels,
         y=values,
-        marker={"color": "#97151c"},
+        marker={"color":[ "#97151c",'#D9CB04']},
         name="Device Use",
     )
 
@@ -101,7 +101,7 @@ def update_graph_1(start_date, end_date,type):
 #######################################
 
     fig['layout'].update(
-      height=500,
+
      paper_bgcolor = '#000406',
      font_color = "white"
       )
@@ -142,7 +142,6 @@ def update_pie(start_date, end_date,type):
     fig['layout'].update(
 
     paper_bgcolor="#111111",
-    height = 500,
     font_color = "white",
     annotations=[{"font": {"size": 20},
     "text": "Accès par Os","y": 0.4}]
