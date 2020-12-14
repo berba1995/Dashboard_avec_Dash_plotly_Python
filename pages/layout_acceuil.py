@@ -14,12 +14,12 @@ current_year_df_pc, month, day, hour, min = map(int,df_pc.dates.max().strftime("
 date_picker=dcc.DatePickerRange(
   id='my-date-picker-range-publishing',
   # with_portal=True,
-  min_date_allowed=(df_pc['dates'].max()-timedelta(120)).to_pydatetime(),
+  min_date_allowed=(df_pc['dates'].max()-timedelta(60)).to_pydatetime(),
   max_date_allowed=df_pc['dates'].max().to_pydatetime(),
   initial_visible_month=dt(current_year_df_pc,df_pc['dates'].max().to_pydatetime().month, 1),
   start_date=(df_pc['dates'].max() - timedelta(28)).date(),
   end_date=df_pc['dates'].max().date(),
-  style={'marginLeft': 100}
+  #style={'marginLeft': 100}
 )
 
 
@@ -53,7 +53,7 @@ body = dbc.Container([
                             Vous êtes sur la page d'acceuil du tutoriel de développement de dashbord en python avec Dash. \
                             Je vous présente ici les données du trafic web d'un site internet. Ce sont notamment les accès avec  \
                             differents appareils (mac, android, iphone_ipad, autre_pc) que vous pouvez visualiser sur plusieurs\
-                            mois (aout - novembre) grâce à un sélecteur de date dans la table ci-dessous.",
+                            2 mois (Octobre - novembre) grâce à un sélecteur de date dans la table ci-dessous.",
 
                                 style={"color": "#000406"},
 
@@ -82,9 +82,8 @@ body = dbc.Container([
                     ], justify="center", align="center"
                     ),
      html.Br(),
-     dbc.Row([dbc.Col(date_picker, md=5),dbc.Col(table, md=7)])
+     dbc.Row([dbc.Col(date_picker, lg=4),dbc.Col(table, lg=8)]),
 ],style={"height": "100vh"}
-
 )
 
 layout_acceuil =  html.Div([body],style={'background-image': 'url("/assets/bg.jpg")'})

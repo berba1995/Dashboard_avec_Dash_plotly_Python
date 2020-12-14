@@ -16,10 +16,9 @@ def create_card(title, content,color):
             [
                 html.H4(title, className="card-title"),
                 html.Br(),
-                html.Br(),
                 html.H2(content, className="card-subtitle"),
                 html.Br(),
-                html.Br(),
+
                 ]
         ),
         color=color, inverse=True
@@ -28,10 +27,10 @@ def create_card(title, content,color):
 
 acces_number=df_pc.sum(axis=0)
 
-card1 = create_card("Nombre d'accès avec Android", acces_number[0],color_l[0])
-card2 = create_card("Nombre d'accès avec Autres PC", acces_number[1],color_l[1])
-card3 = create_card("Nombre d'accès avec Iphone", acces_number[2],color_l[2])
-card4 = create_card("Nombre d'accès avec Mac", acces_number[3],color_l[3])
+card1 = create_card("Nombre d'accès Android", acces_number[0],color_l[0])
+card2 = create_card("Nombre d'accès Autres PC", acces_number[1],color_l[1])
+card3 = create_card("Nombre d'accès Iphone", acces_number[2],color_l[2])
+card4 = create_card("Nombre d'accès Mac", acces_number[3],color_l[3])
 
 graphRow0 = dbc.Row([dbc.Col(id='card1', children=[card1], md=3), dbc.Col(id='card2', children=[card2], md=3), dbc.Col(id='card3', children=[card3], md=3), dbc.Col(id='card4', children=[card4], md=3)])
 
@@ -96,11 +95,11 @@ radio_item=dcc.RadioItems(
 
 
 filtre_label =html.H2("Select date range : ",style={'color':'blue'})
-filtre_line = dbc.Row([dbc.Col(filtre_label , md=3), dbc.Col(radio_item, md=6)])
+filtre_line = dbc.Row([dbc.Col(filtre_label , lg=3,width=6), dbc.Col(radio_item, lg=6, width=6)])
 
 graph=dcc.Graph(id='publishing')
 
-graph_line = dbc.Row([dbc.Col(graph, md=8), dbc.Col(piegraph, md=4)])
+graph_line = dbc.Row([dbc.Col(graph, lg=8), dbc.Col(piegraph, lg=4)])
 
 #table_line= dbc.Row([dbc.Col(date_picker, md=4),dbc.Col(table, md=8)],justify="center")
 footer =dbc.Row(
@@ -113,11 +112,11 @@ footer =dbc.Row(
                 ],
                 className='lead'
             )
-        )
+        ,lg=12)
     )
 
 
-layout_dashboard  = html.Div([html.Br(),graphRow0, html.Br(),html.Br(), filtre_line ,html.Br(), graph_line,html.Br(),footer],style={"height": "100vh"})
+layout_dashboard  = html.Div([html.Br(),graphRow0, html.Br(), filtre_line ,html.Br(), graph_line,html.Br(),footer],style={"height": "100vh"})
 
 
 
