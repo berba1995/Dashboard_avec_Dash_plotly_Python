@@ -6,7 +6,6 @@ from pages.layout_dashboard import layout_dashboard
 from pages.layout_acceuil import layout_acceuil
 from datetime import date, timedelta
 from datetime import datetime as dt
-#from callbacks import *
 
 import pandas as pd
 import io
@@ -16,15 +15,12 @@ import dash
 import dash_bootstrap_components as dbc
 # see https://dash.plot.ly/external-resources to alter header, footer and favicon
 from components.functions import df_pc
-
 from components.functions import update_first_datatable, update_graph_1,df_pc,update_pie
 
 
+app = dash.Dash(__name__,external_stylesheets=[dbc.themes.BOOTSTRAP,'https://use.fontawesome.com/releases/v5.9.0/css/all.css'])
 
-
-app = dash.Dash(
-    external_stylesheets=[dbc.themes.BOOTSTRAP,'https://use.fontawesome.com/releases/v5.9.0/css/all.css']
-)
+server = app.server
 app.layout = html.Div([
     dcc.Location(id='url', refresh=True),
     navbar,
@@ -42,10 +38,6 @@ def display_page(pathname):
         return layout_acceuil
     elif pathname=='/dashboard':
         return layout_dashboard
-
-
-#app.layout = layout_trafic
-
 
 
 
