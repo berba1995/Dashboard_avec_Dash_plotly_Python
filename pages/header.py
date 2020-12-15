@@ -19,7 +19,6 @@ navbar = dbc.Navbar(
                 align="cesnter",
                 no_gutters=True,
             ),
-            #lien derriere l'image
         ),
         dbc.NavbarToggler(id="navbar-toggler"),
     ],

@@ -9,7 +9,11 @@ from components.functions import df_pc
 import dash
 import dash_bootstrap_components as dbc
 
+
+################################bloc des cartes###########################
+#courleurs des cartes
 color_l=['info',"secondary","success","warning","danger"]
+#fonctiond de création des cartes
 def create_card(title, content,color):
     card = dbc.Card(
         dbc.CardBody(
@@ -32,9 +36,10 @@ card2 = create_card("Nombre d'accès Autres PC", acces_number[1],color_l[1])
 card3 = create_card("Nombre d'accès Iphone", acces_number[2],color_l[2])
 card4 = create_card("Nombre d'accès Mac", acces_number[3],color_l[3])
 
-graphRow0 = dbc.Row([dbc.Col(id='card1', children=[card1], md=3), dbc.Col(id='card2', children=[card2], md=3), dbc.Col(id='card3', children=[card3], md=3), dbc.Col(id='card4', children=[card4], md=3)])
+card = dbc.Row([dbc.Col(id='card1', children=[card1], lg=3,width=6), dbc.Col(id='card2', children=[card2], lg=3,width=6), dbc.Col(id='card3', children=[card3], lg=3,width=6), dbc.Col(id='card4', children=[card4], lg=3,width=6)])
+#########################################Fin déclaration cartes######################################
 
-
+##########@@###### bloc déclaration Pie graph###########################################
 piegraph=dcc.Graph(id='pieGraph')
 pie = dcc.Graph(
         id = "pieG",
@@ -76,9 +81,10 @@ pie = dcc.Graph(
         }
 )
 
+################################################# fin bloc déclaration Pigraph###########
 
 
-
+##########################################bloc déclaration RadioItems###################
 radio_item=dcc.RadioItems(
   options=[
       #{'label': 'choix date', 'value': 'choix'},
@@ -88,25 +94,28 @@ radio_item=dcc.RadioItems(
       {'label': 'All', 'value': 'all'}
 
   ], #value='choix',
-  labelStyle={'display': 'inline-block', 'width': '20%','color': 'blue','marginTop': 13},
+  labelStyle={'display': 'inline-block', 'width': '20%','color': '#ffff','marginTop': 13},
   id='radio-button-publishing'
   )
 
-
-
-filtre_label =html.H2("Select date range : ",style={'color':'blue'})
+filtre_label =html.H2("Select date range : ",style={'color':'#ffff'})
 filtre_line = dbc.Row([dbc.Col(filtre_label , lg=3,width=6), dbc.Col(radio_item, lg=6, width=6)])
 
+###################################Fin bloc déclaration RadioItems##################
+
+
+#déclaration graph line et bar
 graph=dcc.Graph(id='publishing')
 
+#déclaration ligne entierre raph line , bar et pie graph#########
 graph_line = dbc.Row([dbc.Col(graph, lg=8), dbc.Col(piegraph, lg=4)])
 
-#table_line= dbc.Row([dbc.Col(date_picker, md=4),dbc.Col(table, md=8)],justify="center")
+#déclaration footer#####@@@@@#################
 footer =dbc.Row(
         dbc.Col(
             html.P(
                 [
-                    html.Span('Auteur : Wilfried Kouadio', className='mr-2'),
+                    html.Span('Auteur : Wilfried Kouadio', className='mr-2',style={'color':'#ffff'}),
                     html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/berba1995/Dashboard_avec_Dash_plotly_Python'),
                     html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/wilfried-kouadio/'),
                 ],
@@ -116,15 +125,5 @@ footer =dbc.Row(
     )
 
 
-layout_dashboard  = html.Div([html.Br(),graphRow0, html.Br(), filtre_line ,html.Br(), graph_line,html.Br(),footer],style={"height": "100vh"})
-
-
-
-
-
-
-
-
-
-
-######################## START Log action sur site ########################
+#déclaration layout final
+layout_dashboard  = html.Div([html.Br(),card, html.Br(), filtre_line ,html.Br(), graph_line,html.Br(),footer],style={"background-color":'black',"height": "100vh"})

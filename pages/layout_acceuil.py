@@ -52,7 +52,7 @@ body = dbc.Container([
                                 "\
                             Vous êtes sur la page d'acceuil du tutoriel de développement de dashbord en python avec Dash. \
                             Je vous présente ici les données du trafic web d'un site internet. Ce sont notamment les accès avec  \
-                            differents appareils (mac, android, iphone_ipad, autre_pc) que vous pouvez visualiser sur plusieurs\
+                            differents appareils (mac, android, iphone_ipad, autre_pc) que vous pouvez visualiser ici sur\
                             2 mois (Octobre - novembre) grâce à un sélecteur de date dans la table ci-dessous.",
 
                                 style={"color": "#000406"},

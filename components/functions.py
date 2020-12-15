@@ -4,46 +4,24 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 import numpy as np
 import pandas as pd
-# Read in Travel Report Data
-
+#Import des données
 df_pc=pd.read_csv('data/data_pc.csv')
-
 df_pc['dates'] = pd.to_datetime(df_pc['dates'],format='%Y-%m-%d')
-
-
-
-# First Data Table Update Function
+#fonction de mise à  jour de la table
 def update_first_datatable(start_date,end_date,type):
-
     if start_date is not None:
             start_date= dt.strptime(start_date, '%Y-%m-%d')
             start_date_string = start_date.strftime('%Y-%m-%d')
-
     if end_date is not None:
-
             end_date =dt.strptime(end_date, '%Y-%m-%d')
             end_date_string = end_date.strftime('%Y-%m-%d')
-
     if type=='defaut':
         data_df=df_pc[(df_pc['dates']>=start_date_string) & (df_pc['dates']<=end_date_string)]
-
-    elif type=='trafic':
-        data_df=df_pc[(df_pc['dates']>=start_date_string) & (df_pc['dates']<=end_date_string)]
-
     data_df['dates']=data_df['dates'].dt.date
-
     return data_df.to_dict("rows")
 
 
-# First Data Table Download Function
-def update_first_download(start_date, end_date,type):
-    if type=='trafic':
-        data=df_pc
-    return data
-
-
-######################## FOR GRAPHS  ########################
-
+######################## Fonction de mise à jour du graph (line et bar)  ########################
 
 def update_graph(start_date, end_date,type):
     if start_date is not None:
@@ -98,7 +76,7 @@ def update_graph(start_date, end_date,type):
 
     fig.add_trace(Bar, 1, 2)
 
-#######################################
+#####################
 
     fig['layout'].update(
 
@@ -111,6 +89,9 @@ def update_graph(start_date, end_date,type):
     return updated_fig
 
 
+###################Fin mise à jour graphique(line et bar)@###################
+
+######################## Fonction de mise à jour du graph pie  ########################
 def update_pie(start_date, end_date,type):
     if start_date is not None:
             start_date= dt.strptime(start_date, '%Y-%m-%d')
@@ -149,3 +130,4 @@ def update_pie(start_date, end_date,type):
     )
     final_fig=fig
     return final_fig
+######################## Fin de mise à jour du graph pie  ########################
