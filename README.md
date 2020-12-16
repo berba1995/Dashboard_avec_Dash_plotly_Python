@@ -8,7 +8,7 @@ Les défis relevés pour la création de cette application web sont:
 
 - Mise à jour des paramètres de tables de données en fonction de la plage de date sélectionnée par l'utilisateur dans un sélecteur de date
 
-- Mise à jour de plusieurs graphiques en fonction de la plage de dates sélectionnées par l'utilisateur via des cases à cocher.
+- Mise à jour de plusieurs graphiques en fonction de la plage de dates sélectionnée par l'utilisateur via des cases à cocher.
 
 - Navigation entre plusieurs pages via une barre de navigation
 
